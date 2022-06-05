@@ -1,12 +1,13 @@
-import { useFormik } from "formik";
-import { CompanyValidationSchema as validationSchema } from "../../validation_schemes/CompanyValidationSchema";
-import { Button, Stack, TextField, Typography } from "@mui/material";
-import { useCompanyMutations } from "../../api/mutations";
-import { CompanyBody } from "../../api/models";
+import { FC } from "react";
+import { useCompanyMutations } from "../../../../api/mutations";
 import { useNavigate } from "react-router-dom";
 import { useQueryClient } from "react-query";
+import { useFormik } from "formik";
+import { CompanyValidationSchema as validationSchema } from "../../../../validation_schemes";
+import { CompanyBody } from "../../../../api/models";
+import { Button, Stack, TextField, Typography } from "@mui/material";
 
-export const CreateCompany = () => {
+export const CreateCompany: FC = () => {
   const { companyPostMutation } = useCompanyMutations();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
