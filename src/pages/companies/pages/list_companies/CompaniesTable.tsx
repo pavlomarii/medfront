@@ -6,10 +6,10 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { CompanyModel } from "../../../../api/models";
+import { CompanySlimModel } from "../../../../api/models";
 
 interface ICompaniesTable {
-  companies: CompanyModel[];
+  companies: CompanySlimModel[];
 }
 
 export const CompaniesTable: FC<ICompaniesTable> = ({ companies }) => {
@@ -19,11 +19,10 @@ export const CompaniesTable: FC<ICompaniesTable> = ({ companies }) => {
         <TableHead>
           <TableRow>
             <TableCell>ID</TableCell>
-            <TableCell align="right">Company</TableCell>
+            <TableCell align="right">Name</TableCell>
+            <TableCell align="right">Website</TableCell>
             <TableCell align="right">Amount Doctors</TableCell>
             <TableCell align="right">Amount Patients</TableCell>
-            <TableCell align="right">Created At</TableCell>
-            <TableCell align="right">Updated At</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -36,10 +35,9 @@ export const CompaniesTable: FC<ICompaniesTable> = ({ companies }) => {
                 {row.id}
               </TableCell>
               <TableCell align="right">{row.name}</TableCell>
+              <TableCell align="right">{row.website}</TableCell>
               <TableCell align="right">{row.amount_users}</TableCell>
               <TableCell align="right">{row.amount_patients}</TableCell>
-              <TableCell align="right">{row.created_at}</TableCell>
-              <TableCell align="right">{row.updated_at}</TableCell>
             </TableRow>
           ))}
         </TableBody>

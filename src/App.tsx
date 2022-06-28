@@ -7,6 +7,7 @@ import { Login } from "./components/login/Login";
 import { useToken } from "./hooks/useToken";
 import { Paths } from "./utils/Paths";
 import { ListPatients } from "./pages/patients/pages";
+import { ListCompanies } from "./pages/companies/pages";
 
 const App: FC = () => {
   const { token, setToken } = useToken();
@@ -18,11 +19,8 @@ const App: FC = () => {
   return (
     <div className="wrapper">
       <Routes>
-        {/*<Route*/}
-        {/*  path="/super_admin_page/create_company"*/}
-        {/*  element={<CreateCompany />}*/}
-        {/*/>*/}
         <Route path={Paths.patients.list} element={<ListPatients />} />
+        <Route path={Paths.companies.list} element={<ListCompanies />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/preferences" element={<Preferences />} />
         <Route path="*" element={<Navigate to="/patients" replace />} />
